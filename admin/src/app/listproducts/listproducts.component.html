@@ -1,0 +1,84 @@
+<div id="wrapper">
+
+    <!-- Sidebar -->
+   <app-menu></app-menu>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+           <app-top></app-top>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800">List Products</h1>
+
+
+              
+                    <p><select name="catp" (change)="listp($event)">
+                        <option value="">-Select Category-</option>
+                        
+                            <option *ngFor="let c of cats" [value]="c._id">{{c.cat_name}}</option>
+                    
+
+                    </select></p>
+                    
+                
+
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        
+                        <th>Product Image</th>
+
+                        <td>Delete</td>
+                        
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let p of products">
+                            <td>{{p.pname}}</td>
+                            <td>{{p.pprice}}</td>
+                            <td><img style="width: 100px;" [src]="'http://localhost:2000/product_img/'+p.pimg" /> </td>
+  <td><button class="btn btn-danger" (click)="delpro(p._id,p.category)">Delete</button> </td>
+
+                        </tr>
+
+                     
+
+                    </tbody>
+                  </table>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <app-footer></app-footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
