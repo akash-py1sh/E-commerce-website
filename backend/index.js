@@ -4,7 +4,7 @@ const fileUpload = require('express-fileupload');
 const cors=require('cors');
 const mongoose = require('mongoose');
 const app=express();
-mongoose.connect("mongodb+srv://akash:12345@cluster0.eiiho66.mongodb.net/ecom?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://akash:@cluster0.eiiho66.mongodb.net/ecom?retryWrites=true&w=majority");
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('public'))
